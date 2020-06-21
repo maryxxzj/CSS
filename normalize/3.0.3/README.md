@@ -181,9 +181,10 @@ strong {
 }
 ```
 
-* Firefox3+，Safari4/5 和 Chrome 中统一设置为粗体
-
-Firefox 3+, Safari 和 Chrome 给`b`和`strong`设置的属性是`bolder`，而不是`bold`，这里统一了样式。
+* Firefox3+，Safari4/5 和 Chrome 中统一设置为bold
+>Chrome 给`b`和`strong`设置的属性是`bold`
+>Opera 给`b`和`strong`设置的属性是`bold`
+>Firefox给`b`和`strong`设置的属性是`700`
 
 ```
 /**
