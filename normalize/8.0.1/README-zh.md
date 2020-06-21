@@ -199,6 +199,7 @@ img {
 ```
 删除IE 10中链接`<a>`内部图像的边框。
 > 在旧版本的浏览器中，图片默认会有一个奇丑无比的蓝色边框。
+
 ### 表单 Forms 
 ``` 
 /**
@@ -388,6 +389,27 @@ input[type="radio" i] {
   height: auto;
 }
 ```
+在谷歌浏览器中修正数字微调按钮的高度为auto,当设置为0时，数字微调框不可用
+
+>::-webkit-inner-spin-button CSS伪元素用于为数字选择器输入元素`<input>`的微调按钮的内部设置样式。
+
+>::-webkit-outer-spin-button CSS伪元素用于为数字选择器输入元素`<input>`的微调按钮的外部设置样式。
+
+>`<input type="number" value="22" min="1" max="100">`
+
+在IE，Opera,FireFox解析为 `<input type="number" value="22" min="1" max="100">`
+
+>在Chrome下解析为
+``` 
+<input type="number" value="22" min="1" max="100">
+#shadow-root(user-agent)
+<div id="text-field-container" pseudo="-webkit-textfield-decoration-container">
+    <div id="editing-view-port">
+        <div>22</div>
+    </div>
+    <div pseudo="-webkit-inner-spin-button" id="spin"></div>
+</div>
+```
 ``` 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
@@ -399,6 +421,11 @@ input[type="radio" i] {
   outline-offset: -2px; /* 2 */
 }
 ```
+1. 修复Chrome和Safari中的外观。
+
+2. 在Safari中更正轮廓样式。
+
+>search是CSS3的属性，它可以让一个div元素看上去像任何元素，但是浏览器支持性并不好.
 ``` 
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
@@ -408,6 +435,7 @@ input[type="radio" i] {
   -webkit-appearance: none;
 }
 ```
+在macOS上的Chrome和Safari中删除内部填充。
 ``` 
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
@@ -419,7 +447,11 @@ input[type="radio" i] {
   font: inherit; /* 2 */
 }
 ```
-### Interactive 
+1. 修复无法在iOS和Safari中设置可点击类型的样式的问题。
+
+2. 在Safari中将字体属性更改为`inherit`。
+
+### 交互元素 Interactive 
 ``` 
 /*
  * Add the correct display in Edge, IE 10+, and Firefox.
@@ -429,6 +461,11 @@ details {
   display: block;
 }
 ```
+在Edge, IE 10+, Firefox中添加details的display为block
+
+> `details` 元素用于描述有关文档或文档片段的详细信息。目前只有 Chrome 和 Safari 6 支持`<details>`标签。
+ 
+> 当低版本浏览器遇到不识别的元素时，会默认把他当成内联元素(inline)，这里重新定义成为block元素。
 ``` 
 /*
  * Add the correct display in all browsers.
@@ -438,8 +475,12 @@ summary {
   display: list-item;
 }
 ```
+在所有浏览器中添加`display: list-item;`，确保summary正确显示。
 
-### Misc 
+> `<summary> `是 HTML 5 中的新标签。包含 details 元素的标题。与 `<details>` 标签一起使用。标题是可见的，当用户点击标题时会显示出详细信息。
+
+>> 只有 Chrome 以及 Safari 6 支持`<summary> `标签。
+### 杂项 Misc 
 ``` 
 /**
  * Add the correct display in IE 10+.
@@ -449,6 +490,12 @@ template {
   display: none;
 }
 ```
+IE 中设置`<template>`元素的`display: none;`，因为IE中不支持`<template>`元素。
+
+> HTML内容模板（`<template>`）元素是一种用于**保存客户端内容机制**，该内容在加载页面时不会呈现，但随后可以在运行时使用JavaScript实例化。
+ 
+> 将模板视为一个可存储在文档中以便后续使用的内容片段。虽然解析器在加载页面时**会处理**`<template>`元素的内容，但这样做只是为了确保这些内容有效；但元素内容**不会被渲染**。
+
 ``` 
 /**
  * Add the correct display in IE 10.
@@ -458,3 +505,6 @@ template {
   display: none;
 }
 ```
+* 修复IE10中hidden属性不起作用
+
+ >IE 8/9/10，Firefox 3 和 Safari 4 中hidden属性不起作用

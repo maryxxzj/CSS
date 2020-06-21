@@ -276,7 +276,7 @@ textarea {
 }
 
 /**
- * Correct the cursor style of increment and decrement buttons in Chrome.
+ * 在谷歌浏览器中修正数字微调按钮的高度为auto.当设置为0时，数字微调框不可用
  */
 
 [type="number"]::-webkit-inner-spin-button,
@@ -285,8 +285,8 @@ textarea {
 }
 
 /**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
+ * 1. 修复Chrome和Safari中的外观。
+ * 2. 在Safari中更正轮廓样式。
  */
 
 [type="search"] {
@@ -294,8 +294,9 @@ textarea {
   outline-offset: -2px; /* 2 */
 }
 
+
 /**
- * Remove the inner padding in Chrome and Safari on macOS.
+ * 在macOS上的Chrome和Safari中删除内部填充。
  */
 
 [type="search"]::-webkit-search-decoration {
@@ -303,8 +304,8 @@ textarea {
 }
 
 /**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
+ * 1. 修复无法在iOS和Safari中设置可点击类型的样式的问题。
+ * 2. 在Safari中将字体属性更改为`inherit`。
  */
 
 ::-webkit-file-upload-button {
@@ -316,7 +317,7 @@ textarea {
    ========================================================================== */
 
 /*
- * Add the correct display in Edge, IE 10+, and Firefox.
+ * 在Edge, IE 10+, Firefox中添加details的display为block。
  */
 
 details {
@@ -324,18 +325,19 @@ details {
 }
 
 /*
- * Add the correct display in all browsers.
+ * 在所有浏览器中添加`display: list-item;`，确保summary正确显示。
  */
 
 summary {
   display: list-item;
 }
 
-/* Misc
-   ========================================================================== */
+
+  /* Misc
+     ========================================================================== */
 
 /**
- * Add the correct display in IE 10+.
+ *  IE 中设置`<template>`元素的`display: none;` ，因为IE中不支持`<template>`元素。
  */
 
 template {
@@ -343,7 +345,7 @@ template {
 }
 
 /**
- * Add the correct display in IE 10.
+ * 修复IE10中hidden属性不起作用
  */
 
 [hidden] {
